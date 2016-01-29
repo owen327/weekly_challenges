@@ -14,6 +14,6 @@ class School
   end
 
   def grade(specific_grade)
-    @school.fetch(specific_grade) { [] } .sort
+    @school.fetch(specific_grade, []).sort
   end
 end
