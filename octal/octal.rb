@@ -4,6 +4,6 @@ class Octal
   end
 
   def to_decimal
-    @value.chars.map(&:to_f).inject(0) {|sum, num| (sum + num / 8) * 8 } 
+    @value.chars.inject(0) {|sum, num| (sum + num.to_i ) * 8 } / 8
   end
 end
