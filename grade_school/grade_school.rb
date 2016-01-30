@@ -8,7 +8,7 @@ class School
   end
 
   def add(name, grade)
-     @school[grade] = @school[grade].push(name).sort
+    @school[grade].push(name).sort!
   end
 
   def grade(specific_grade)
