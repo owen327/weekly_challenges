@@ -1,6 +1,7 @@
 class School
   def initialize
-    @school = {}
+    @school = Hash.new { |hash, key| hash[key] = [] }
+
   end
 
   def to_h
@@ -8,10 +9,10 @@ class School
   end
 
   def add(name, grade)
-    @school[grade].nil? ? @school[grade] = [name] : @school[grade] = @school[grade].push(name).sort
+     @school[grade] = @school[grade].push(name).sort
   end
 
   def grade(specific_grade)
-    @school.fetch(specific_grade, [])
+    @school[specific_grade]
   end
 end
