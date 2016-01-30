@@ -1,17 +1,17 @@
 class School
   def initialize
-    @school = Hash.new { |school, grade| school[grade] = [] }
+    @roster = Hash.new { |roster, grade| roster[grade] = [] }
   end
 
   def to_h
-    @school.sort.to_h
+    @roster.sort.to_h
   end
 
   def add(name, grade)
-    @school[grade].push(name).sort!
+    @roster[grade].push(name).sort!
   end
 
   def grade(specific_grade)
-    @school[specific_grade]
+    @roster[specific_grade]
   end
 end
