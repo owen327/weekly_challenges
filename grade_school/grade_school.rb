@@ -1,6 +1,6 @@
 class School
   def initialize
-    @school = Hash.new { |hash, key| hash[key] = [] }
+    @school = Hash.new { |school, grade| school[grade] = [] }
   end
 
   def to_h
