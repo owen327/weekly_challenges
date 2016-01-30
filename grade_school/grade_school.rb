@@ -1,7 +1,6 @@
 class School
   def initialize
     @school = Hash.new { |hash, key| hash[key] = [] }
-
   end
 
   def to_h
