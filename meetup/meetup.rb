@@ -7,7 +7,6 @@ class Meetup
 
   def day(weekday, schedule)
     days = @range.select { |dy| dy.strftime('%A').downcase.to_sym == weekday }
-    return days[INDEX[schedule]] if schedule != :teenth
-    days.select { |dy| (13..19).include? dy.mday }[0]
+    days[INDEX.fetch(schedule, days.index { |dy| (13..19).include? dy.mday })]
   end
 end
