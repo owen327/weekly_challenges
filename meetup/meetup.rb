@@ -5,7 +5,6 @@ class Meetup
   end
 
   def day(weekday, schedule)
-    @range[@ref[schedule]..(@ref[schedule] + 6)]
-      .find { |dy| dy.strftime('%A').downcase.to_sym == weekday }
+    @range[@ref[schedule]..31].find { |dy| dy.public_send("#{weekday}?") }
   end
 end
