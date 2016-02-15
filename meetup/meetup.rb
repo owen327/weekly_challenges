@@ -1,13 +1,13 @@
 class Meetup
-  MARKER = { first: 1, second: 8, third: 15, fourth: 22, last: -7, teenth: 13 }
-
   def initialize(month, year)
-    @range = MARKER.map do |sch, num|
-      [sch, Date.new(year, month, num)..Date.new(year, month, num + 6)]
-    end.to_h
+    @range = (Date.new(year, month)...Date.new(year, month) >> 1).to_a
   end
 
   def day(weekday, schedule)
-    @range[schedule].find { |dy| dy.strftime('%A').downcase.to_sym == weekday }
+    ref = { first: 0, second: 7, third: 14, fourth: 21, last: -7, teenth: 12 }
+    @range.find do |dy|
+      dy.strftime('%A').downcase.to_sym == weekday &&
+        @range[ref[schedule]..(ref[schedule] + 6)].include?(dy)
+    end
   end
 end
