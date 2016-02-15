@@ -5,9 +5,8 @@ class Meetup
   end
 
   def day(weekday, schedule)
-    @range.find do |dy|
-      dy.strftime('%A').downcase.to_sym == weekday &&
-        @range[@ref[schedule]..(@ref[schedule] + 6)].include?(dy)
+    @range[@ref[schedule]..(@ref[schedule] + 6)].find do |dy|
+      dy.strftime('%A').downcase.to_sym == weekday
     end
   end
 end
