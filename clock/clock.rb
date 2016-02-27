@@ -21,7 +21,6 @@ class Clock
 
   def -(other)
     self + -other
-    self
   end
 
   def ==(other)
