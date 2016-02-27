@@ -13,17 +13,23 @@ class Clock
   end
 
   def +(other)
-    @minute += other % 60
-    @hour += other / 60
-    @hour %= 24
-    self
+    change!(other)
   end
 
   def -(other)
-    self + -other
+    change!(-other)
   end
 
   def ==(other)
     to_s == other.to_s
+  end
+
+  private
+
+  def change!(other)
+    @minute += other % 60
+    @hour += other / 60
+    @hour %= 24
+    self
   end
 end
