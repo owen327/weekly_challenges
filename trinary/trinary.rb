@@ -1,9 +1,8 @@
 class Trinary
-  def initialize(input)
-    @value = (/^[0-2]+$/).match(input) ? input : '0'
-  end
+  attr_reader :to_decimal
 
-  def to_decimal
-    @value.chars.inject(0) {|sum, num| (sum + num.to_i ) * 3 } / 3
+  def initialize(input)
+    @to_decimal = (/^[0-2]+$/ =~ input ? input : '0')
+                  .chars.inject(0) { |sum, num| (sum + num.to_i) * 3 } / 3
   end
 end
