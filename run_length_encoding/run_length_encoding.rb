@@ -4,6 +4,6 @@ module RunLengthEncoding
   end
 
   def self.decode(input)
-    input.gsub(/\d+\D|\D/) { |match| match.to_i != 0 ? match[-1] * match.to_i : match }
+    input.gsub(/\d+\D/) { |match| match[-1] * match.to_i }
   end
 end
