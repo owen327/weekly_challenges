@@ -1,6 +1,6 @@
 module RunLengthEncoding
   def self.encode(input)
-    input.gsub(/(.)\1{1,}/) { |match| match.size.to_s + match[0] }
+    input.gsub(/(.)\1+/) { |match| match.size.to_s + match[0] }
   end
 
   def self.decode(input)
