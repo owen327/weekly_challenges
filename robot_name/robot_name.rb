@@ -7,7 +7,7 @@ class Robot
   end
 
   def reset
-    self.name = ('AA'..'ZZ').to_a.sample + sprintf("%03d", rand(1))
+    self.name = ('AA'..'ZZ').to_a.sample + sprintf("%03d", rand(1000))
     @@names.include?(name) ? reset : @@names << name
     name
   end
