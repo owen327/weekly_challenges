@@ -1,20 +1,15 @@
 class Robot
-  LETTERS = ('A'..'Z').to_a
-  NUMBERS = ('0'..'9').to_a
   @@names = []
+  attr_accessor :name
 
-  def name
-    @name ? @name : reset
+  def initialize
+    @name = reset
   end
 
   def reset
-    @name = 2.times.with_object('') { |_, result| result << LETTERS.sample } +
-            3.times.with_object('') { |_, result| result << NUMBERS.sample }
-    @@names.include?(@name) ? reset : @@names << @name
-    @name
+    self.name = ('AA'..'ZZ').to_a.sample + rand(1000).to_s
+    @@names.include?(name) ? reset : @@names << name
+    name
   end
 end
-
-# Notes:
-# @name = ('AA'..'ZZ').to_a.sample + ('000'..'999').to_a.sample
 # @name = ('AA000'..'ZZ999').to_a.sample
