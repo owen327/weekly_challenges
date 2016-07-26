@@ -7,8 +7,7 @@ class Robot
   end
 
   def reset
-    self.name = 2.times.with_object('') { |_, str| str << rand(65..90).chr } +
-                format('%03d', rand(1000))
+    self.name = format('%s%s%03d', rand(65..90).chr, rand(65..90).chr, rand(1000))
     @@names.include?(name) ? reset : @@names << name
     name
   end
